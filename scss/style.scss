@@ -1,0 +1,74 @@
+@import 'config'; // imports the _config.scss file
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: $light-color;
+    font-family: $font-stack;
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.showcase {
+    @include set-background($primary-color); // because it's a mixin, we have to use '@include'
+    height: 600px;
+
+    nav {
+        display: flex;     // makes the content of the nav spread on one level horizontally
+        align-items: center;
+        justify-content: space-between;
+
+        ul {
+            display: flex;   // makes the ul contents (li's) spread on one level horizontally    
+            list-style: none;   // removes the dots of the li's
+        }
+
+        li {
+            padding: 15px; // adds space between the li elements
+        }
+
+        a:hover {
+            color: $secondary-color; // sets the color of a tags in the nav to change colour when hovered over
+        }
+
+        a {
+            color: set-text-color($primary-color); // using the function from the config file
+        }
+    }
+
+    .showcase-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+
+        img {
+            width: 50%;         // sets the width of images under the class of 'showcase-content' to 50%
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 1.2; // makes the lines of text closer than standard height
+        }
+
+    }
+}
+
+@import 'utilities';
+@import 'buttons';
+@import 'mobile';
+
